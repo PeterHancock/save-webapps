@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# cd to Tomcat dir
+CMT_MSG='Updated wars'
+
+if [[ "$1" != "" ]]
+then
+    CMT_MSG="$CMT_MSG: $1"
+fi
 
 git status
 
@@ -10,5 +15,5 @@ then
     git init && git commit --allow-empty -m 'init'
 fi
 
-git add webapps/*.war && git commit -m 'wars'
+git add webapps/*.war && git commit -m "$CMT_MSG"
 
