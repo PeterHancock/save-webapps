@@ -7,7 +7,7 @@ then
     CMT_MSG="$CMT_MSG: $1"
 fi
 
-git status
+git status -s
 
 if [[ "$?" != "0" ]]
 then
