@@ -12,9 +12,12 @@ git status -s
 if [[ "$?" != "0" ]]
 then
     echo -e '/*\n/*/\n!/webapps/\n/webapps/*/' > .gitignore
-    git init && echo -e '[user]\n    name = Snapshot\n    email = you@example.com' >> .git/config && git commit --allow-empty -m 'init'
+    git init &&
+    git config user.name "Snapshot" &&
+    git config user.email "no@email" &&
+    git config alias.st status &&
+    git commit --allow-empty -m 'init'
 fi
-
 
 git add webapps/*.war && git commit -m "$CMT_MSG"
 
